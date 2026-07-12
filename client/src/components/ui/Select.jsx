@@ -1,10 +1,12 @@
 import { ChevronDown } from "lucide-react";
 
-const Select = ({ options }) => {
+const Select = ({ name, options, value, onChange }) => {
     return (
         <div className="relative inline-block">
             <select
                 name={name}
+                value={value}
+                onChange={onChange}
                 className="appearance-none pr-6 outline-none focus:outline-none focus:ring-0"
             >
                 {options.map((option) => (
