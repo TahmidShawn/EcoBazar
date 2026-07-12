@@ -1,6 +1,6 @@
 import { MapPin } from "lucide-react";
-import Select from "../../ui/Select";
-import { languageOptions, currencyOptions } from "../../../data/data";
+import NavSelect from "./NavSelect";
+import { languageOptions, currencyOptions } from "../../../../data/data";
 import { useState } from "react";
 const TopBar = () => {
     const [language, setLanguage] = useState("en");
@@ -20,13 +20,13 @@ const TopBar = () => {
                     </span>
                 </p>
                 <div className="flex gap-1 md:gap-6 items-center">
-                    <Select
+                    <NavSelect
                         options={languageOptions}
                         name="language"
                         value={language}
                         onChange={(e) => setLanguage(e.target.value)}
                     />
-                    <Select
+                    <NavSelect
                         options={currencyOptions}
                         name="currency"
                         value={currency}
