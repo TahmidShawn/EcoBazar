@@ -12,7 +12,7 @@ const TopBar = () => {
 
     return (
         <div className="border-b border-gray-200">
-            <div className="wrapper flex flex-col md:flex-row justify-between items-center text-gray-600 text-xs py-1.5">
+            <div className="wrapper hidden md:flex justify-between items-center text-gray-600 text-xs py-1.5">
                 <p className="flex items-center gap-1">
                     <MapPin />
                     <span>
