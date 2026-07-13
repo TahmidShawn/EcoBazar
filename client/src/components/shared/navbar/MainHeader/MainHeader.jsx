@@ -8,7 +8,7 @@ const MainHeader = () => {
 
     return (
         <>
-            <div className="wrapper pt-2">
+            <div className="wrapper py-3">
                 <div className="flex flex-col gap-2 lg:gap-4 lg:flex-row lg:items-center lg:justify-between">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
