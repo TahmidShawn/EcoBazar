@@ -8,7 +8,7 @@ const MainHeader = () => {
 
     return (
         <>
-            <div className="wrapper pt-2 lg:pt-4">
+            <div className="wrapper pt-2">
                 <div className="flex flex-col gap-2 lg:gap-4 lg:flex-row lg:items-center lg:justify-between">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
@@ -39,14 +39,14 @@ const MainHeader = () => {
                         </div>
                     </div>
 
-                    <div className="flex w-full lg:max-w-xl">
+                    <div className="flex w-full lg:max-w-lg">
                         <div className="relative flex-1">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
 
                             <input
                                 type="text"
                                 placeholder="Search"
-                                className="w-full border border-gray-200 py-2 pl-10 pr-4 rounded-l-md focus:outline-gray-400"
+                                className="w-full border border-gray-200 py-1.5 pl-10 rounded-l-md focus:outline-gray-400"
                             />
                         </div>
 
