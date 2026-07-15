@@ -12,7 +12,7 @@ const DealBanner = ({ bannerBottomImg }) => {
             <div className="flex flex-col items-center absolute top-1/2 left-1/2 whitespace-nowrap -translate-x-1/2 -translate-y-1/2 text-center text-white ">
                 <p>Best Deal</p>
 
-                <h2 className="text-xl md:text-2xl font-semibold tracking-wide mt-2">
+                <h2 className="text-lg md:text-2xl font-semibold tracking-wide mt-2">
                     Special Products <br />
                     Deal of the Month
                 </h2>
