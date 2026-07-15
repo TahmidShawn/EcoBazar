@@ -1,1 +1,1 @@
-live -
+live - https://ecobazar09.netlify.app
