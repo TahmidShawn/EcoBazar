@@ -3,7 +3,7 @@ import feature2 from "./../../../../assets/feature/headphones.png";
 import feature3 from "./../../../../assets/feature/package.png";
 import feature4 from "./../../../../assets/feature/shopping-bag.png";
 
-const features = [
+const featuresData = [
     {
         id: 1,
         image: feature1,
@@ -35,7 +35,7 @@ const Features = () => {
         <div className="wrapper py-10">
             <div className="overflow-hidden rounded-lg  shadow-[8px_4px_30px_rgba(0,0,0,0.15)] py-2 md:py-4">
                 <div className="grid grid-cols-2 lg:grid-cols-4">
-                    {features.map((feature) => (
+                    {featuresData.map((feature) => (
                         <div
                             key={feature.id}
                             className="flex items-center gap-4 p-3 md:p-6"
