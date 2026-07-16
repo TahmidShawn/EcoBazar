@@ -1,6 +1,6 @@
 import Banner from "./components/banner/Banner";
-import Features from "./components/Features/Features";
-import PopularCategories from "./components/popularCategories/popularCategories";
+import Features from "./components/features/Features";
+import PopularCategories from "./components/popularCategories/PopularCategories";
 import PopularProducts from "./components/popularProducts/PopularProducts";
 
 const Home = () => {
