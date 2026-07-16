@@ -12,7 +12,7 @@ const PopularCategories = () => {
             />
 
             {/* contain section  */}
-            <section className=" grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-4 mx-6 lg:mx-0">
+            <section className=" grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-4">
                 {popularCategories?.map((popularCategory) => (
                     <PopularCategory
                         key={popularCategory.id}

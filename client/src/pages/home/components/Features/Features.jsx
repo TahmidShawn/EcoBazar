@@ -33,7 +33,7 @@ const features = [
 const Features = () => {
     return (
         <div className="wrapper py-10">
-            <div className="overflow-hidden rounded-lg border border-gray-200 shadow-sm py-2 md:py-4">
+            <div className="overflow-hidden rounded-lg  shadow-[8px_4px_30px_rgba(0,0,0,0.15)] py-2 md:py-4">
                 <div className="grid grid-cols-2 lg:grid-cols-4">
                     {features.map((feature) => (
                         <div
