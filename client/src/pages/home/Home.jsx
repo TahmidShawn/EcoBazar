@@ -1,5 +1,5 @@
 import Banner from "./components/banner/Banner";
-import Features from "./components/features-temp/Features";
+import Features from "./components/features/Features";
 
 import PopularCategories from "./components/popularCategories/PopularCategories";
 import PopularProducts from "./components/popularProducts/PopularProducts";
