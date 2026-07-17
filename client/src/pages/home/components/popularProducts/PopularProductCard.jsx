@@ -28,15 +28,15 @@ const PopularProductCard = ({ product }) => {
                 </div>
             </div>
 
-            <div className="absolute top-2 right-2 space-y-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div className="absolute top-2 right-2 space-y-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <Link>
-                    <div className="rounded-full bg-white p-1.5 shadow">
+                    <div className="rounded-full bg-white group-hover:bg-gray-200 p-1.5 shadow">
                         <Heart size={18} />
                     </div>
                 </Link>
 
                 <Link>
-                    <div className="rounded-full bg-white p-1.5 shadow">
+                    <div className="rounded-full bg-white group-hover:bg-gray-200 p-1.5 shadow mt-1.5">
                         <Eye size={18} />
                     </div>
                 </Link>
