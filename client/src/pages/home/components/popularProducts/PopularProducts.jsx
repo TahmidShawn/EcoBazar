@@ -1,5 +1,5 @@
 import SectionTitle from "../../../../components/shared/sectionTitle/SectionTitle";
-import PopularProductCard from "./popularProductCard";
+import PopularProductCard from "./PopularProductCard";
 import { popularProducts } from "../../../../data/data";
 
 const PopularProducts = () => {
