@@ -1,6 +1,6 @@
-import bannerImg from "../../../../assets/banner_big.png";
-import bannerTopImg from "../../../../assets/banner_top_right.png";
-import bannerBottomImg from "../../../../assets/banner_bottom_right.png";
+import bannerImg from "../../../../assets/banner/banner_big.png";
+import bannerTopImg from "../../../../assets/banner/banner_top_right.png";
+import bannerBottomImg from "../../../../assets/banner/banner_bottom_right.png";
 
 import HeroBanner from "./HeroBanner";
 import SummerSaleBanner from "./SummerSaleBanner";

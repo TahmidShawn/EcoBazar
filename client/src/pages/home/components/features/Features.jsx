@@ -1,34 +1,4 @@
-import feature1 from "./../../../../assets/feature/delivery-truck.png";
-import feature2 from "./../../../../assets/feature/headphones.png";
-import feature3 from "./../../../../assets/feature/package.png";
-import feature4 from "./../../../../assets/feature/shopping-bag.png";
-
-const featuresData = [
-    {
-        id: 1,
-        image: feature1,
-        title: "Free Shipping",
-        description: "Free shipping on all your orders",
-    },
-    {
-        id: 2,
-        image: feature2,
-        title: "Customer Support 24/7",
-        description: "Instant access to Support",
-    },
-    {
-        id: 3,
-        image: feature3,
-        title: "100% Secure Payment",
-        description: "We ensure your money is safe",
-    },
-    {
-        id: 4,
-        image: feature4,
-        title: "Money-Back Guarantee",
-        description: "30 Days Money-Back Guarantee",
-    },
-];
+import { featuresData } from "../../../../data/data";
 
 const Features = () => {
     return (

@@ -12,6 +12,13 @@ import img10 from "../assets/popularCategories/img-10.png";
 import img11 from "../assets/popularCategories/img-11.png";
 import img12 from "../assets/popularCategories/img-12.png";
 
+import feature1 from "../assets/feature/delivery-truck.png";
+import feature2 from "../assets/feature/headphones.png";
+import feature3 from "../assets/feature/package.png";
+import feature4 from "../assets/feature/shopping-bag.png";
+
+import product1 from "../assets/popularProducts/Image.png";
+
 // export
 export const languageOptions = [
     { label: "English", value: "en" },
@@ -21,6 +28,33 @@ export const languageOptions = [
 export const currencyOptions = [
     { label: "USD", value: "usd" },
     { label: "BDT", value: "bdt" },
+];
+
+export const featuresData = [
+    {
+        id: 1,
+        image: feature1,
+        title: "Free Shipping",
+        description: "Free shipping on all your orders",
+    },
+    {
+        id: 2,
+        image: feature2,
+        title: "Customer Support 24/7",
+        description: "Instant access to Support",
+    },
+    {
+        id: 3,
+        image: feature3,
+        title: "100% Secure Payment",
+        description: "We ensure your money is safe",
+    },
+    {
+        id: 4,
+        image: feature4,
+        title: "Money-Back Guarantee",
+        description: "30 Days Money-Back Guarantee",
+    },
 ];
 
 export const popularCategories = [
@@ -83,5 +117,43 @@ export const popularCategories = [
         id: 12,
         name: "Oil",
         image: img12,
+    },
+];
+
+export const popularProducts = [
+    {
+        id: 1,
+        name: "Green Apple",
+        price: 14,
+        image: product1,
+        rating: 4,
+    },
+    {
+        id: 2,
+        name: "Fresh Orange",
+        price: 20,
+        image: product1,
+        rating: 5,
+    },
+    {
+        id: 3,
+        name: "Red Tomato",
+        price: 10,
+        image: product1,
+        rating: 3,
+    },
+    {
+        id: 4,
+        name: "Green Cabbage",
+        price: 12,
+        image: product1,
+        rating: 4,
+    },
+    {
+        id: 5,
+        name: "Potato",
+        price: 8,
+        image: product1,
+        rating: 5,
     },
 ];
