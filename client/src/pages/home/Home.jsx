@@ -1,4 +1,5 @@
 import Banner from "./components/banner/Banner";
+import DiscountBanner from "./components/discountBanner/DiscountBanner";
 import Features from "./components/features/Features";
 import HotDeals from "./components/hotDeals/HotDeals";
 import OfferBanner from "./components/offerBanner/OfferBanner";
@@ -13,8 +14,9 @@ const Home = () => {
             <Features />
             <PopularCategories />
             <PopularProducts />
-            {/* <OfferBanner /> */}
+            <OfferBanner />
             <HotDeals />
+            <DiscountBanner />
         </div>
     );
 };
