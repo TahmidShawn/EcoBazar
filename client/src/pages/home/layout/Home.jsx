@@ -8,6 +8,7 @@ import OfferBanner from "../components/offerBanner/OfferBanner";
 
 import PopularCategories from "../components/popularCategories/PopularCategories";
 import PopularProducts from "../components/popularProducts/PopularProducts";
+import Testimonials from "../components/testimonials/Testimonials";
 
 const Home = () => {
     return (
@@ -21,6 +22,7 @@ const Home = () => {
             <DiscountBanner />
             <FeaturedProducts />
             <LatestNews />
+            <Testimonials />
         </div>
     );
 };
