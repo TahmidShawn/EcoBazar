@@ -157,3 +157,40 @@ export const popularProducts = [
         rating: 5,
     },
 ];
+export const featuredProducts = [
+    {
+        id: 1,
+        name: "Green Apple",
+        price: 14,
+        image: product1,
+        rating: 4,
+    },
+    {
+        id: 2,
+        name: "Fresh Orange",
+        price: 20,
+        image: product1,
+        rating: 5,
+    },
+    {
+        id: 3,
+        name: "Red Tomato",
+        price: 10,
+        image: product1,
+        rating: 3,
+    },
+    {
+        id: 4,
+        name: "Green Cabbage",
+        price: 12,
+        image: product1,
+        rating: 4,
+    },
+    {
+        id: 5,
+        name: "Potato",
+        price: 8,
+        image: product1,
+        rating: 5,
+    },
+];

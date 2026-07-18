@@ -1,18 +1,18 @@
 import SectionTitle from "../../../../components/shared/sectionTitle/SectionTitle";
-import { popularProducts } from "../../../../data/data";
+import { featuredProducts } from "../../../../data/data";
 import ProductCard from "../../../../components/shared/productCard/ProductCard";
 
-const PopularProducts = () => {
+const FeaturedProducts = () => {
     return (
         <div className="my-6 wrapper space-y-6">
             {/* title section  */}
             <SectionTitle
-                categoryName="Popular Products"
-                categoryLink="/popular-products"
+                categoryName="Featured Products"
+                categoryLink="/featured-products"
             />
             {/* contain section  */}
             <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                {popularProducts.map((product) => (
+                {featuredProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
                 ))}
             </section>
@@ -20,4 +20,4 @@ const PopularProducts = () => {
     );
 };
 
-export default PopularProducts;
+export default FeaturedProducts;

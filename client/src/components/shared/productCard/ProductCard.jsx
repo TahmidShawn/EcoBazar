@@ -1,7 +1,7 @@
 import { Eye, Heart, Star } from "lucide-react";
 import { Link } from "react-router";
 
-const PopularProductCard = ({ product }) => {
+const ProductCard = ({ product }) => {
     const { image, name, price, rating } = product;
 
     return (
@@ -44,4 +44,4 @@ const PopularProductCard = ({ product }) => {
     );
 };
 
-export default PopularProductCard;
+export default ProductCard;
