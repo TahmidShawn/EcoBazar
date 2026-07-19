@@ -34,7 +34,7 @@ const Testimonials = () => {
     const sliderRef = useRef(null);
 
     return (
-        <div className="wrapper py-16">
+        <div className="wrapper mb-16">
             <div className="mb-8 flex items-center justify-between">
                 <h2 className="text-3xl font-bold">Client Testimonials</h2>
 
