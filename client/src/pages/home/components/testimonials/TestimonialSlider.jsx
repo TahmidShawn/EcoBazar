@@ -21,6 +21,8 @@ const TestimonialSlider = forwardRef(({ testimonials }, ref) => {
 
     const [transition, setTransition] = useState(true);
 
+    const [isHovered, setIsHovered] = useState(false);
+
     const isAnimating = useRef(false);
 
     const sliderData = useMemo(() => {
@@ -108,8 +110,24 @@ const TestimonialSlider = forwardRef(({ testimonials }, ref) => {
         isAnimating.current = false;
     };
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (!isHovered && !isAnimating.current) {
+                isAnimating.current = true;
+                setTransition(true);
+                setCurrentIndex((prev) => prev + 1);
+            }
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, [isHovered]);
+
     return (
-        <div className="overflow-hidden">
+        <div
+            className="overflow-hidden cursor-pointer rounded-xl"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
             <div
                 className="flex"
                 onTransitionEnd={handleTransitionEnd}
