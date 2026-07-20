@@ -2,7 +2,7 @@ import Filter from "./Filter";
 import ProductCard from "../../../../components/shared/productCard/ProductCard";
 import { popularProducts } from "../../../../data/data";
 
-const ProductListing = () => {
+const ProductCatalog = () => {
     return (
         <section className="wrapper mt-6">
             <Filter />
@@ -16,4 +16,4 @@ const ProductListing = () => {
     );
 };
 
-export default ProductListing;
+export default ProductCatalog;

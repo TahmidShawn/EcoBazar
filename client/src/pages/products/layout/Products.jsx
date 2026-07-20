@@ -1,6 +1,6 @@
 import Breadcrumb from "../../../components/ui/Breadcrumb";
 import BestDealBanner from "../components/bestDealBanner/BestDealBanner";
-import ProductListing from "../components/productListing/ProductListing";
+import ProductCatalog from "../components/productCatalog/ProductCatalog";
 
 const Products = () => {
     return (
@@ -17,7 +17,7 @@ const Products = () => {
                 ]}
             />
             <BestDealBanner />
-            <ProductListing />
+            <ProductCatalog />
         </div>
     );
 };
