@@ -1,3 +1,5 @@
+import Ratings from "../../../../components/ui/Ratings";
+
 const TestimonialCard = ({ testimonial }) => {
     return (
         <div className="mx-2 flex h-full flex-col rounded-xl p-6 shadow-xl bg-white ">
@@ -32,12 +34,12 @@ const TestimonialCard = ({ testimonial }) => {
                     <div>
                         <h3 className="font-semibold">{testimonial.name}</h3>
                         <p className="text-sm font-light text-gray-500">
-                            Customer
+                            {testimonial.role}
                         </p>
                     </div>
                 </div>
 
-                <div>{testimonial.rating}*</div>
+                <Ratings rating={testimonial.rating} />
             </div>
         </div>
     );

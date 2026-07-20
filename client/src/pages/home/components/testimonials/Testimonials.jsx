@@ -10,27 +10,31 @@ const testimonials = [
         text: "Pellentesque eu nibh eget mauris congue mattis mattis nec tellus. Phasellus imperdiet elit eu magna dictum, bibendum cursus velit sodales. Donec sed neque eget",
         image: imgUrl,
         rating: 5,
+        role: "Customer",
     },
     {
         id: 2,
         name: "Sarah Smith",
         text: "Phasellus imperdiet elit eu magna dictum, bibendum cursus velit sodales.",
         image: imgUrl,
-        rating: 5,
+        rating: 4,
+        role: "Customer",
     },
     {
         id: 3,
         name: "David Wilson",
         text: "Donec sed neque eget lorem vulputate commodo non quis lectus.",
         image: imgUrl,
-        rating: 5,
+        rating: 1,
+        role: "Customer",
     },
     {
         id: 4,
         name: "Emily Johnson",
         text: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.",
         image: imgUrl,
-        rating: 5,
+        rating: 3,
+        role: "Customer",
     },
     {
         id: 5,
@@ -38,6 +42,7 @@ const testimonials = [
         text: "Curabitur porttitor orci eget neque accumsan venenatis.",
         image: imgUrl,
         rating: 5,
+        role: "Manager",
     },
 ];
 

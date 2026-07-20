@@ -1,5 +1,6 @@
-import { Eye, Heart, Star } from "lucide-react";
+import { Eye, Heart } from "lucide-react";
 import { Link } from "react-router";
+import Ratings from "../../ui/Ratings";
 
 const ProductCard = ({ product }) => {
     const { image, name, price, rating } = product;
@@ -15,16 +16,7 @@ const ProductCard = ({ product }) => {
                     ${price.toFixed(2)}
                 </h2>
 
-                <div className="flex items-center gap-1 mt-1">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                        <Star
-                            key={star}
-                            size={16}
-                            fill={star <= rating ? "#ff8a00" : "none"}
-                            stroke={star <= rating ? "#ff8a00" : "#d1d5db"}
-                        />
-                    ))}
-                </div>
+                <Ratings rating={rating} />
             </div>
 
             <div className="absolute top-2 right-2 space-y-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">

@@ -3,12 +3,14 @@ import img from "../../../../assets/banner/best_deal.png";
 
 const BestDealBanner = () => {
     return (
-        <div className="relative h-80">
-            <img src={img} alt="" className="w-full h-full" />
-            <div className="absolute top-1/2 -translate-y-1/2 lef-0">
-                <p>Best Deals</p>
-                <h2>Sale of the Month</h2>
-                <h3>00:00:00:00</h3>
+        <div className="relative h-80 text-white wrapper">
+            <img src={img} alt="" className="w-full h-full object-cover" />
+            <div className="absolute top-1/2 -translate-y-1/2 left-14">
+                <p className="uppercase text-sm">Best Deals</p>
+                <h2 className="text-4xl mt-2 font-semibold">
+                    Sale of the Month
+                </h2>
+                <h3 className="text-2xl text-primary my-4">00:00:00:00</h3>
                 <PrimaryButton />
             </div>
         </div>
