@@ -1,3 +1,4 @@
+import Newsletter from "../../../components/shared/newsletter/Newsletter";
 import Banner from "../components/banner/Banner";
 import DiscountBanner from "../components/discountBanner/DiscountBanner";
 import FeaturedProducts from "../components/featuredProducts/FeaturedProducts";
@@ -23,6 +24,7 @@ const Home = () => {
             <FeaturedProducts />
             <LatestNews />
             <Testimonials />
+            <Newsletter />
         </div>
     );
 };

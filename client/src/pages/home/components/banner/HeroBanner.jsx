@@ -19,7 +19,7 @@ const HeroBanner = ({ bannerImg }) => {
                 <div className="border-l border-gray-300 pl-3 my-6">
                     <p>
                         <span className="tracking-wider">Sale up to</span>
-                        <span className="bg-[#ff8a00] px-3 py-1 rounded-md ml-2">
+                        <span className="bg-secondary px-3 py-1 rounded-md ml-2">
                             30% OFF
                         </span>
                     </p>
