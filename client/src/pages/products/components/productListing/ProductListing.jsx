@@ -1,10 +1,18 @@
 import Filter from "./Filter";
+import ProductCard from "../../../../components/shared/productCard/ProductCard";
+import { popularProducts } from "../../../../data/data";
 
 const ProductListing = () => {
     return (
-        <div className="wrapper mt-6">
+        <section className="wrapper mt-6">
             <Filter />
-        </div>
+
+            <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                {popularProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                ))}
+            </div>
+        </section>
     );
 };
 
