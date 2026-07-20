@@ -194,3 +194,41 @@ export const featuredProducts = [
         rating: 5,
     },
 ];
+
+// Filter data
+
+export const categoryOptions = [
+    { value: "all", label: "All Categories" },
+    { value: "vegetables", label: "Vegetables" },
+    { value: "fruits", label: "Fresh Fruits" },
+    { value: "fish", label: "Fish" },
+    { value: "meat", label: "Meat" },
+];
+
+export const priceOptions = [
+    { value: "all", label: "Price" },
+    { value: "low-high", label: "Low to High" },
+    { value: "high-low", label: "High to Low" },
+    { value: "under-20", label: "Under $20" },
+    { value: "over-20", label: "Over $20" },
+];
+
+export const ratingOptions = [
+    { value: "all", label: "Rating" },
+    { value: "5", label: "5 Stars" },
+    { value: "4", label: "4 Stars & Up" },
+    { value: "3", label: "3 Stars & Up" },
+];
+
+export const latestOptions = [
+    { value: "latest", label: "Latest" },
+    { value: "oldest", label: "Oldest" },
+];
+
+export const sortOptions = [
+    { value: "featured", label: "Featured" },
+    { value: "popular", label: "Popular" },
+    { value: "best-selling", label: "Best Selling" },
+    { value: "a-z", label: "A-Z" },
+    { value: "z-a", label: "Z-A" },
+];
