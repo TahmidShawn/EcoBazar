@@ -4,7 +4,7 @@ import logo from "../../../assets/Vector.png";
 
 const Footer = () => {
     return (
-        <footer className="mt-16 bg-text text-sm text-gray-300">
+        <footer className=" bg-text text-sm text-gray-300">
             <div className="wrapper grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-5">
                 <div className="lg:col-span-2">
                     <Link to="/" className="flex items-center gap-3">

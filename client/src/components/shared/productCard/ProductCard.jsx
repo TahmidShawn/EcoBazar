@@ -1,6 +1,7 @@
 import { Eye, Heart } from "lucide-react";
 import { Link } from "react-router";
 import Ratings from "../../ui/Ratings";
+import PrimaryButton from "../../ui/PrimaryButton";
 
 const ProductCard = ({ product }) => {
     const { image, name, price, rating } = product;
@@ -17,6 +18,9 @@ const ProductCard = ({ product }) => {
                 </h2>
 
                 <Ratings rating={rating} />
+                <Link to={`/products/${product.id}`}>
+                    <PrimaryButton />
+                </Link>
             </div>
 
             <div className="absolute top-2 right-2 space-y-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
