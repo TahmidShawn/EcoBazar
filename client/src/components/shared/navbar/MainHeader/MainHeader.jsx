@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Handbag, Heart, Menu, Search } from "lucide-react";
 import vectorImg from "../../../../assets/Vector.png";
 import MobileSidebar from "./MobileSidebar";
+import { Link } from "react-router";
 
 const MainHeader = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,9 @@ const MainHeader = () => {
 
                         {/* Mobile Icons */}
                         <div className="flex items-center gap-4 lg:hidden">
-                            <Heart className="w-6 h-6 cursor-pointer" />
+                            <Link to={"/wishlist"} className="cursor-pointer">
+                                <Heart className="w-6 h-6" />
+                            </Link>
                             <Handbag className="w-6 h-6 cursor-pointer" />
                         </div>
                     </div>
@@ -57,7 +60,9 @@ const MainHeader = () => {
 
                     {/* Desktop Icons */}
                     <div className="hidden lg:flex items-center gap-4 text-gray-900">
-                        <Heart className="cursor-pointer" />
+                        <Link to={"/wishlist"} className="cursor-pointer">
+                            <Heart />
+                        </Link>
 
                         <Handbag className="cursor-pointer" />
 

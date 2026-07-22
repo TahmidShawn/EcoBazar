@@ -5,17 +5,17 @@ const Breadcrumb = ({ items = [] }) => {
     return (
         <div className="wrapper flex items-center gap-2 py-5 text-sm">
             <Link to="/">
-                <House size={16} className="text-gray-500 hover:text-primary" />
+                <House size={16} className="text-gray-300 hover:text-primary" />
             </Link>
 
             {items.map((item, index) => (
                 <div key={index} className="flex items-center gap-2">
-                    <ChevronRight size={14} className="text-gray-400" />
+                    <ChevronRight size={14} className="text-gray-300" />
 
                     {item.href ? (
                         <Link
                             to={item.href}
-                            className="text-gray-500 hover:text-primary"
+                            className="text-gray-300 hover:text-primary"
                         >
                             {item.label}
                         </Link>
