@@ -9,12 +9,12 @@ import Cart from "../pages/cart/Cart";
 const Router = () => {
     return (
         <Routes>
-            <Route path="/" element={<RootLayout />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/products/:id" element={<ProductDetails />} />
-                <Route path="/wishlist" element={<WishList />} />
-                <Route path="/shopping-cart" element={<Cart />} />
+            <Route element={<RootLayout />}>
+                <Route index element={<Home />} />
+                <Route path="products" element={<Products />} />
+                <Route path="products/:id" element={<ProductDetails />} />
+                <Route path="wishlist" element={<WishList />} />
+                <Route path="shopping-cart" element={<Cart />} />
             </Route>
         </Routes>
     );
