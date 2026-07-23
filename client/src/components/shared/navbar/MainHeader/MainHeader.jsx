@@ -38,7 +38,12 @@ const MainHeader = () => {
                             <Link to={"/wishlist"} className="cursor-pointer">
                                 <Heart className="w-6 h-6" />
                             </Link>
-                            <Handbag className="w-6 h-6 cursor-pointer" />
+                            <Link
+                                to={"/shopping-cart"}
+                                className="cursor-pointer"
+                            >
+                                <Handbag className="w-6 h-6" />
+                            </Link>
                         </div>
                     </div>
 
@@ -63,8 +68,9 @@ const MainHeader = () => {
                         <Link to={"/wishlist"} className="cursor-pointer">
                             <Heart />
                         </Link>
-
-                        <Handbag className="cursor-pointer" />
+                        <Link to={"/shopping-cart"} className="cursor-pointer">
+                            <Handbag />
+                        </Link>
 
                         <div className="h-5 w-px bg-gray-300" />
 

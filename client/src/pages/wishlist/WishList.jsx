@@ -1,7 +1,6 @@
-import wishListImg from "../../assets/banner/Breadcrumbs.png";
-import Breadcrumb from "../../components/ui/Breadcrumb";
 import img1 from "../../assets/popularProducts/Image.png";
 import { X } from "lucide-react";
+import BreadcrumbBanner from "../../components/shared/breadcrumbBanner/BreadcrumbBanner";
 
 const wishlistProducts = [
     {
@@ -28,25 +27,16 @@ const wishlistProducts = [
         inStock: false,
     },
 ];
+const breadcrumbData = [{ label: "Wishlist" }];
 
 const WishList = () => {
     return (
         <div>
             {/* Breadcrumb */}
-            <div className="relative h-24 w-full">
-                <img
-                    src={wishListImg}
-                    alt=""
-                    className="h-full w-full object-cover"
-                />
-
-                <div className="absolute top-1/2 left-0 w-full -translate-y-1/2">
-                    <Breadcrumb items={[{ label: "Wishlist" }]} />
-                </div>
-            </div>
+            <BreadcrumbBanner items={breadcrumbData} />
 
             {/* Wishlist */}
-            <section className="wrapper py-8 md:py-16">
+            <section className="wrapper py-8 md:py-10">
                 <h2 className="mb-8 text-center text-2xl font-semibold md:text-4xl">
                     My Wishlist
                 </h2>
@@ -55,9 +45,9 @@ const WishList = () => {
                     {/* Header */}
 
                     <div className="hidden grid-cols-12 border-b border-border bg-gray-50 px-6 py-4 text-sm font-medium uppercase text-muted md:grid">
-                        <p className="col-span-6">Product</p>
-                        <p className="col-span-2">Price</p>
-                        <p className="col-span-2">Stock</p>
+                        <p className="col-span-5">Product</p>
+                        <p className="col-span-2 ml-3">Price</p>
+                        <p className="col-span-3 ml-4">Stock</p>
                         <p className="col-span-1"></p>
                         <p className="col-span-1"></p>
                     </div>
@@ -116,7 +106,7 @@ const WishList = () => {
                             <div className="md:col-span-2">
                                 <button
                                     disabled={!product.inStock}
-                                    className={`w-full rounded-full px-5 py-3 text-sm font-medium md:w-auto ${
+                                    className={`w-full rounded-full px-4 lg:px-5 py-3 text-xs lg:text-sm font-medium md:w-auto ${
                                         product.inStock
                                             ? "bg-primary text-white"
                                             : "cursor-not-allowed bg-gray-200 text-gray-400"
