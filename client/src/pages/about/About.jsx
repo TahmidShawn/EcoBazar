@@ -23,7 +23,7 @@ const About = () => {
                 ]}
             />
 
-            <section className="wrapper space-y-28 py-20">
+            <section className="wrapper space-y-14 md:space-y-28 py-20">
                 <div className="flex flex-col items-center gap-12 lg:flex-row">
                     <div className="w-full lg:w-1/2">
                         <p className="text-primary mb-3 font-semibold uppercase tracking-widest">
@@ -56,7 +56,7 @@ const About = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col items-center gap-12 lg:flex-row">
+                <div className="flex flex-col-reverse items-center gap-12 lg:flex-row">
                     <div className="w-full lg:w-1/2 overflow-hidden rounded-xl">
                         <img
                             src={img1}
@@ -156,7 +156,7 @@ const About = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col-reverse items-center gap-12 lg:flex-row">
+                <div className="flex flex-col items-center gap-12 lg:flex-row">
                     <div className="w-full lg:w-1/2">
                         <p className="text-primary mb-3 font-semibold uppercase tracking-widest">
                             Fast Delivery
