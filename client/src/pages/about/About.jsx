@@ -10,6 +10,7 @@ import {
     BadgeCheck,
     ArrowRight,
 } from "lucide-react";
+import Team from "./Team";
 
 const About = () => {
     return (
@@ -55,8 +56,8 @@ const About = () => {
                     </div>
                 </div>
 
-                <div className="grid items-center gap-12 lg:grid-cols-2">
-                    <div className="overflow-hidden rounded-xl">
+                <div className="flex flex-col items-center gap-12 lg:flex-row">
+                    <div className="w-full lg:w-1/2 overflow-hidden rounded-xl">
                         <img
                             src={img1}
                             alt=""
@@ -64,7 +65,7 @@ const About = () => {
                         />
                     </div>
 
-                    <div>
+                    <div className="w-full lg:w-1/2">
                         <p className="text-primary mb-3 font-semibold uppercase tracking-widest">
                             Why Choose Us
                         </p>
@@ -79,15 +80,13 @@ const About = () => {
                             autem.
                         </p>
 
-                        <div className="grid gap-6 sm:grid-cols-2">
+                        <div className="grid gap-8 sm:grid-cols-2">
                             <div className="flex items-start gap-3">
                                 <Leaf className="text-primary" />
-
                                 <div>
                                     <h4 className="font-semibold">
                                         Organic Food
                                     </h4>
-
                                     <p className="text-muted text-sm">
                                         Fresh & healthy products.
                                     </p>
@@ -96,12 +95,10 @@ const About = () => {
 
                             <div className="flex items-start gap-3">
                                 <Headphones className="text-primary" />
-
                                 <div>
                                     <h4 className="font-semibold">
                                         24/7 Support
                                     </h4>
-
                                     <p className="text-muted text-sm">
                                         Always here to help.
                                     </p>
@@ -110,12 +107,10 @@ const About = () => {
 
                             <div className="flex items-start gap-3">
                                 <ShieldCheck className="text-primary" />
-
                                 <div>
                                     <h4 className="font-semibold">
                                         Secure Payment
                                     </h4>
-
                                     <p className="text-muted text-sm">
                                         Safe checkout process.
                                     </p>
@@ -124,12 +119,10 @@ const About = () => {
 
                             <div className="flex items-start gap-3">
                                 <Truck className="text-primary" />
-
                                 <div>
                                     <h4 className="font-semibold">
                                         Free Delivery
                                     </h4>
-
                                     <p className="text-muted text-sm">
                                         Fast shipping service.
                                     </p>
@@ -138,12 +131,10 @@ const About = () => {
 
                             <div className="flex items-start gap-3">
                                 <RefreshCw className="text-primary" />
-
                                 <div>
                                     <h4 className="font-semibold">
                                         Easy Return
                                     </h4>
-
                                     <p className="text-muted text-sm">
                                         Hassle free returns.
                                     </p>
@@ -152,12 +143,10 @@ const About = () => {
 
                             <div className="flex items-start gap-3">
                                 <BadgeCheck className="text-primary" />
-
                                 <div>
                                     <h4 className="font-semibold">
                                         Premium Quality
                                     </h4>
-
                                     <p className="text-muted text-sm">
                                         Carefully selected items.
                                     </p>
@@ -198,6 +187,9 @@ const About = () => {
                     </div>
                 </div>
             </section>
+            <div className="bg-linear-to-t from-gray-100 via-green-50/40 to-gray-100 py-14">
+                <Team />
+            </div>
         </div>
     );
 };
