@@ -3,7 +3,7 @@ import NavLinks from "./NavLinks";
 
 const MenuBar = () => {
     return (
-        <nav className="hidden lg:block bg-[#333333] py-3.5 text-gray-200 text-sm">
+        <nav className="hidden lg:block bg-gray-50 py-3.5 border-y border-border text-sm">
             <div className="flex justify-between items-center wrapper">
                 <div className="flex gap-10">
                     <NavLinks />

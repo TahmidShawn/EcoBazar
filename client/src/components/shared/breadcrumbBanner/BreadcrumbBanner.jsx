@@ -3,7 +3,7 @@ import Breadcrumb from "../../ui/Breadcrumb";
 
 const BreadcrumbBanner = ({ items }) => {
     return (
-        <div className="relative h-24 w-full">
+        <div className="relative h-16 w-full">
             <img
                 src={wishListImg}
                 alt=""
