@@ -7,6 +7,7 @@ import WishList from "../pages/wishlist/WishList";
 import Cart from "../pages/cart/Cart";
 import About from "../pages/about/About";
 import Contact from "../pages/contact/Contact";
+import Register from "../pages/register/Register";
 
 const Router = () => {
     return (
@@ -19,6 +20,7 @@ const Router = () => {
                 <Route path="shopping-cart" element={<Cart />} />
                 <Route path="about" element={<About />} />
                 <Route path="contact" element={<Contact />} />
+                <Route path="register" element={<Register />} />
             </Route>
         </Routes>
     );

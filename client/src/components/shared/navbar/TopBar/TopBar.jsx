@@ -2,6 +2,7 @@ import { MapPin } from "lucide-react";
 import NavSelect from "./NavSelect";
 import { languageOptions, currencyOptions } from "../../../../data/data";
 import { useState } from "react";
+import { Link } from "react-router";
 const TopBar = () => {
     const [language, setLanguage] = useState("en");
     const [currency, setCurrency] = useState("usd");
@@ -33,7 +34,9 @@ const TopBar = () => {
                         onChange={(e) => setCurrency(e.target.value)}
                     />
                     <div className="h-4 w-px bg-gray-300"></div>
-                    <button className="">Sign In</button>
+                    <Link to={"/register"} className="">
+                        Sign In
+                    </Link>
                 </div>
             </div>
         </div>
