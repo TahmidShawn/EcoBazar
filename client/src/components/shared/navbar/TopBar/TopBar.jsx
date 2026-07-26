@@ -37,6 +37,9 @@ const TopBar = () => {
                     <Link to={"/register"} className="">
                         Sign In
                     </Link>
+                    <Link to={"/login"} className="">
+                        Login
+                    </Link>
                 </div>
             </div>
         </div>
