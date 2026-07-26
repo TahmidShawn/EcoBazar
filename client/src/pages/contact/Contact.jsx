@@ -12,10 +12,10 @@ const Contact = () => {
                 ]}
             />
 
-            <div className=" mt-10">
-                <div className="wrapper overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
-                    <div className="grid lg:grid-cols-[300px_1fr]">
-                        <div className="border-border bg-gray-50/70 p-6 sm:p-8 lg:border-r lg:p-10">
+            <div className="wrapper mt-10">
+                <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
+                    <div className="grid lg:grid-cols-[280px_minmax(0,1fr)]">
+                        <div className="border-border bg-gray-50/70 p-6 sm:p-8 lg:border-r lg:p-8">
                             <div className="flex flex-col gap-8 sm:grid sm:grid-cols-3 lg:flex lg:flex-col lg:gap-10">
                                 <div className="text-center">
                                     <div className="bg-primary/10 text-primary mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full">
@@ -68,7 +68,7 @@ const Contact = () => {
                         </div>
 
                         {/* Contact Form */}
-                        <div className="p-6 sm:p-8 lg:p-10 xl:p-12">
+                        <div className="min-w-0 p-6 sm:p-8 lg:p-10">
                             <div className="max-w-3xl">
                                 <h2 className="text-text mb-3 text-2xl font-semibold sm:text-3xl">
                                     Just Say Hello!
@@ -81,7 +81,6 @@ const Contact = () => {
                                     get back to you as soon as possible.
                                 </p>
 
-                                {/* Form */}
                                 <form className="space-y-5">
                                     <div className="grid gap-5 sm:grid-cols-2">
                                         <input
@@ -111,7 +110,7 @@ const Contact = () => {
 
                                     <button
                                         type="submit"
-                                        className="bg-primary hover:bg-secondary rounded-full px-7 py-3 text-sm font-medium text-white transition"
+                                        className="bg-primary rounded-full px-7 py-3 text-sm font-medium text-white transition"
                                     >
                                         Send Message
                                     </button>
@@ -122,9 +121,8 @@ const Contact = () => {
                 </div>
             </div>
 
-            {/* Map */}
-            <div className=" mt-10 sm:mt-14">
-                <div className=" border border-border shadow-sm">
+            <div className="mt-10 sm:mt-14">
+                <div className="overflow-hidden border border-border shadow-sm">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0184645946847!2d-121.88632268468204!3d37.33680597984266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcae48af93ff5%3A0xb99d59e662f166ee!2sSan%20Jose%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
                         className="block h-70 w-full sm:h-85 lg:h-100"
