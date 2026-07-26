@@ -8,6 +8,7 @@ const NavLinks = () => {
         { label: "Blog", to: "/blog", icon: Newspaper },
         { label: "About Us", to: "/about", icon: Info },
         { label: "Contact Us", to: "/contact", icon: Phone },
+        { label: "Register", to: "/register", icon: Phone },
     ];
 
     return (
