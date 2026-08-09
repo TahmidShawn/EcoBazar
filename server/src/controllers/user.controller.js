@@ -37,11 +37,8 @@ export const registerUser = asyncHandler(async (req, res, next) => {
 // Login User
 
 export const loginUser = asyncHandler(async (req, res, next) => {
-    // validate data
     const { email, password } = req.body;
-    if (!email || !password) {
-        throw new ErrorHandler("Please enter valid information", 400);
-    }
+
     let user = await User.findOne({ email });
     if (!user) {
         throw new ErrorHandler("Please enter valid information", 401);
@@ -140,9 +137,7 @@ export const resetPassword = asyncHandler(async (req, res, next) => {
             400,
         );
     }
-    if (req.body.password !== req.body.confirmPassword) {
-        throw new ErrorHandler("Password does not match", 400);
-    }
+
     user.password = req.body.password;
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
@@ -160,6 +155,9 @@ export const resetPassword = asyncHandler(async (req, res, next) => {
 
 export const getMe = asyncHandler(async (req, res, next) => {
     const user = await User.findById(req.user.id);
+    if (!user) {
+        throw new ErrorHandler("User not found", 404);
+    }
     const { token, options } = sendToken(user);
     res.status(201).cookie("token", token, options).json({
         success: true,
@@ -172,7 +170,9 @@ export const getMe = asyncHandler(async (req, res, next) => {
 
 export const updatePassword = asyncHandler(async (req, res, next) => {
     const user = await User.findById(req.user.id);
-
+    if (!user) {
+        throw new ErrorHandler("User not found", 404);
+    }
     const isPasswordMatched = await user.comparePassword(
         req.body.currentPassword,
     );
@@ -181,14 +181,10 @@ export const updatePassword = asyncHandler(async (req, res, next) => {
         throw new ErrorHandler("Old password is incorrect", 401);
     }
 
-    if (req.body.newPassword !== req.body.confirmPassword) {
-        throw new ErrorHandler("password does not matched", 401);
-    }
-
     user.password = req.body.newPassword;
     await user.save();
     const { token, options } = sendToken(user);
-    res.status(201).cookie("token", token, options).json({
+    res.status(200).cookie("token", token, options).json({
         success: true,
         message: "Password update successfully",
         data: user,

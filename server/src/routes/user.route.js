@@ -11,7 +11,13 @@ import {
 import { isAuthenticatedUser } from "../middlewares/auth.middleware.js";
 
 import { validateRequest } from "../middlewares/validation.middleware.js";
-import { registerSchema } from "../validations/user.validation.js";
+import {
+    registerSchema,
+    loginSchema,
+    forgotPasswordSchema,
+    resetPasswordSchema,
+    updatePasswordSchema,
+} from "../validations/user.validation.js";
 
 const router = Router();
 
@@ -19,16 +25,26 @@ router
     .route("/auth/register")
     .post(validateRequest(registerSchema), registerUser);
 
-router.route("/auth/login").post(loginUser);
+router.route("/auth/login").post(validateRequest(loginSchema), loginUser);
 
 router.route("/auth/logout").get(logout);
 
-router.route("/password/forgot").post(forgotPassword);
+router
+    .route("/password/forgot")
+    .post(validateRequest(forgotPasswordSchema), forgotPassword);
 
-router.route("/password/reset/:token").put(resetPassword);
+router
+    .route("/password/reset/:token")
+    .put(validateRequest(resetPasswordSchema), resetPassword);
 
 router.route("/me").get(isAuthenticatedUser, getMe);
 
-router.route("/password/update").put(isAuthenticatedUser, updatePassword);
+router
+    .route("/password/update")
+    .put(
+        isAuthenticatedUser,
+        validateRequest(updatePasswordSchema),
+        updatePassword,
+    );
 
 export default router;
