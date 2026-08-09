@@ -17,10 +17,12 @@ const userSchema = new mongoose.Schema(
             required: [true, "Please enter your email"],
             unique: true,
             lowercase: true,
+            maxLength: [200, "Email cannot exceed 200 characters"],
         },
         password: {
             type: String,
             required: [true, "Please enter your password"],
+            maxLength: [100, "Password cannot exceed 100 characters"],
             minLength: [8, "Password should have a minimum of 8 characters"],
         },
         role: {
@@ -39,7 +41,7 @@ const userSchema = new mongoose.Schema(
         resetPasswordToken: String,
         resetPasswordExpire: Date,
     },
-    { timestamps: true }
+    { timestamps: true },
 );
 
 // excluding sensitive data from res
@@ -55,10 +57,11 @@ userSchema.set("toJSON", {
 // hashing the password for security
 userSchema.pre("save", async function (next) {
     if (!this.isModified("password")) {
-        next();
+        return next();
     }
 
     this.password = await bcrypt.hash(this.password, 10);
+    next();
 });
 
 // generating jwt token

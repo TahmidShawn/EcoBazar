@@ -8,20 +8,17 @@ import crypto from "crypto";
 // Register User
 
 export const registerUser = asyncHandler(async (req, res, next) => {
-    // validate data
     const { username, email, password } = req.body;
-    if (!email || !password || !username) {
-        throw new ErrorHandler("Please enter valid information", 400);
-    }
-    let user = await User.findOne({ email });
-    if (user) {
+
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
         throw new ErrorHandler(
             "An account with this email already exists. Please use a different email.",
-            409
+            409,
         );
     }
-    // Creating a new user
-    user = await User.create({
+    // Create new user
+    const user = await User.create({
         username,
         email,
         password,
@@ -140,7 +137,7 @@ export const resetPassword = asyncHandler(async (req, res, next) => {
     if (!user) {
         throw new ErrorHandler(
             "Reset password token is invalid or has been expired",
-            400
+            400,
         );
     }
     if (req.body.password !== req.body.confirmPassword) {
@@ -177,7 +174,7 @@ export const updatePassword = asyncHandler(async (req, res, next) => {
     const user = await User.findById(req.user.id);
 
     const isPasswordMatched = await user.comparePassword(
-        req.body.currentPassword
+        req.body.currentPassword,
     );
 
     if (!isPasswordMatched) {

@@ -10,9 +10,14 @@ import {
 } from "../controllers/user.controller.js";
 import { isAuthenticatedUser } from "../middlewares/auth.middleware.js";
 
+import { validateRequest } from "../middlewares/validation.middleware.js";
+import { registerSchema } from "../validations/user.validation.js";
+
 const router = Router();
 
-router.route("/auth/register").post(registerUser);
+router
+    .route("/auth/register")
+    .post(validateRequest(registerSchema), registerUser);
 
 router.route("/auth/login").post(loginUser);
 
