@@ -34,10 +34,7 @@ const userSchema = new mongoose.Schema(
             default: "user",
         },
         addresses: [addressSchema],
-        phone: {
-            type: String,
-            trim: true,
-        },
+
         wishlist: [
             {
                 type: mongoose.Schema.Types.ObjectId,
