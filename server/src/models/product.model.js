@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import generateSlug from "../utils/generateSlug.js";
 
 const productSchema = new mongoose.Schema(
     {
@@ -104,11 +105,7 @@ productSchema.virtual("unitLabel").get(function () {
 
 productSchema.pre("validate", function (next) {
     if (this.name && !this.slug) {
-        this.slug = this.name
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "");
+        this.slug = generateSlug(this.name);
     }
     next();
 });
