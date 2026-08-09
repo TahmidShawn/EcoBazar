@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
+import addressSchema from "./addressModel.js";
 
 const userSchema = new mongoose.Schema(
     {
@@ -17,6 +18,7 @@ const userSchema = new mongoose.Schema(
             required: [true, "Please enter your email"],
             unique: true,
             lowercase: true,
+            trim: true,
             maxLength: [200, "Email cannot exceed 200 characters"],
         },
         password: {
@@ -24,20 +26,24 @@ const userSchema = new mongoose.Schema(
             required: [true, "Please enter your password"],
             maxLength: [100, "Password cannot exceed 100 characters"],
             minLength: [8, "Password should have a minimum of 8 characters"],
+            select: false,
         },
         role: {
             type: String,
             enum: ["user", "admin"],
             default: "user",
         },
-        address: {
-            type: String,
-            trim: true,
-        },
+        addresses: [addressSchema],
         phone: {
             type: String,
             trim: true,
         },
+        wishlist: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Product",
+            },
+        ],
         resetPasswordToken: String,
         resetPasswordExpire: Date,
     },
@@ -59,7 +65,6 @@ userSchema.pre("save", async function (next) {
     if (!this.isModified("password")) {
         return next();
     }
-
     this.password = await bcrypt.hash(this.password, 10);
     next();
 });
@@ -79,14 +84,11 @@ userSchema.methods.comparePassword = async function (password) {
 // generating reset password token
 userSchema.methods.getResetPasswordToken = function () {
     const resetToken = crypto.randomBytes(20).toString("hex");
-
     this.resetPasswordToken = crypto
         .createHash("sha256")
         .update(resetToken)
         .digest("hex");
-
     this.resetPasswordExpire = Date.now() + 15 * 60 * 1000;
-
     return resetToken;
 };
 
