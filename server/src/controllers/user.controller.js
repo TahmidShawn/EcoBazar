@@ -5,6 +5,9 @@ import sendToken from "../utils/sendToken.js";
 import sendEmail from "../utils/sendEmail.js";
 import crypto from "crypto";
 
+// TO DO
+// Rate limiting for login and register routes to prevent brute force attacks
+
 // Register User
 
 export const registerUser = asyncHandler(async (req, res, next) => {
@@ -77,8 +80,13 @@ export const logout = asyncHandler(async (req, res, next) => {
 
 export const forgotPassword = asyncHandler(async (req, res, next) => {
     const user = await User.findOne({ email: req.body.email });
+    // intentionally not revealing whether the user exists or not for security reasons
     if (!user) {
-        throw new ErrorHandler("Invalid Email or password", 401);
+        return res.status(200).json({
+            success: true,
+            message:
+                "If an account exists with this email, password reset instructions have been sent.",
+        });
     }
     // get reset password token
     const resetToken = user.getResetPasswordToken();
