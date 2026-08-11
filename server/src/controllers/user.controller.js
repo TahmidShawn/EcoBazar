@@ -39,7 +39,7 @@ export const registerUser = asyncHandler(async (req, res, next) => {
 export const loginUser = asyncHandler(async (req, res, next) => {
     const { email, password } = req.body;
 
-    let user = await User.findOne({ email });
+    let user = await User.findOne({ email }).select("+password");
     if (!user) {
         throw new ErrorHandler("Please enter valid information", 401);
     }
@@ -169,7 +169,7 @@ export const getMe = asyncHandler(async (req, res, next) => {
 // Update user password
 
 export const updatePassword = asyncHandler(async (req, res, next) => {
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user.id).select("+password");
     if (!user) {
         throw new ErrorHandler("User not found", 404);
     }

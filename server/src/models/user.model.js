@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
-import addressSchema from "./addressModel.js";
+import addressSchema from "./address.model.js";
 
 const userSchema = new mongoose.Schema(
     {
@@ -58,14 +58,12 @@ userSchema.set("toJSON", {
 });
 
 // hashing the password for security
-userSchema.pre("save", async function (next) {
+userSchema.pre("save", async function () {
     if (!this.isModified("password")) {
-        return next();
+        return;
     }
     this.password = await bcrypt.hash(this.password, 10);
-    next();
 });
-
 // generating jwt token
 userSchema.methods.getJwtToken = function () {
     return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
