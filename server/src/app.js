@@ -6,6 +6,7 @@ import errorMiddleware from "./middlewares/error.middleware.js";
 
 // import routes
 import userRouter from "./routes/user.route.js";
+import productRouter from "./routes/product.route.js";
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(cookieParser());
 // routes declaration
 
 app.use("/api/v1", userRouter);
+app.use("/api/v1", productRouter);
 
 // catch undefined route
 app.use((req, res, next) => {

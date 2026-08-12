@@ -13,20 +13,12 @@ const NavLinks = () => {
 
     return (
         <>
-            {links.map((link) => {
-                const Icon = link.icon;
-
-                return (
-                    <Link
-                        key={link.to}
-                        to={link.to}
-                        className="flex items-center gap-2"
-                    >
-                        <Icon size={14} />
-                        <span>{link.label}</span>
-                    </Link>
-                );
-            })}
+            {links.map(({ label, to, icon: Icon }) => (
+                <Link key={to} to={to} className="flex items-center gap-2">
+                    <Icon size={14} />
+                    <span>{label}</span>
+                </Link>
+            ))}
         </>
     );
 };
