@@ -7,6 +7,7 @@ const productSchema = new mongoose.Schema(
             type: String,
             required: [true, "Please enter product name"],
             trim: true,
+            minLength: [3, "Product name must be at least 3 characters"],
             maxLength: [150, "Product name cannot exceed 150 characters"],
         },
         slug: {
@@ -101,6 +102,19 @@ productSchema.virtual("discountPrice").get(function () {
 
 productSchema.virtual("unitLabel").get(function () {
     return `${this.unitValue}${this.unitType}`;
+});
+
+productSchema.pre("save", async function () {
+    if (!this.isModified("category")) return;
+
+    const category = await mongoose.model("Category").findById(this.category);
+
+    if (!category) {
+        throw new Error("Selected category does not exist");
+    }
+    if (!category.isActive) {
+        throw new Error("Selected category is not active");
+    }
 });
 
 productSchema.pre("validate", function (next) {
