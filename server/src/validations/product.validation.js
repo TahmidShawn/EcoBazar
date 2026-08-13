@@ -16,31 +16,21 @@ export const createProductSchema = z.object({
         .trim()
         .min(1, "Please enter product description"),
 
-    images: z
-        .array(z.url({ error: "Each image must be a valid URL" }), {
-            error: "Please provide product images",
-        })
-        .min(1, "At least one image is required"),
-
     category: objectIdSchema,
 
-    price: z
+    price: z.coerce
         .number({ error: "Please enter product price" })
         .min(0, "Price cannot be negative"),
 
-    stock: z
+    stock: z.coerce
         .number({ error: "Please enter product stock" })
         .min(0, "Stock cannot be negative"),
 
-    discountPercentage: z
-        .number()
-        .min(0, "Discount cannot be negative")
-        .max(100, "Discount cannot exceed 100%")
-        .default(0),
+    discountPercentage: z.coerce.number().min(0).max(100).default(0),
 
-    unitValue: z
+    unitValue: z.coerce
         .number({ error: "Please enter unit value" })
-        .min(0.1, "Unit value must be greater than 0")
+        .min(0.1)
         .default(1),
 
     unitType: z
@@ -49,9 +39,16 @@ export const createProductSchema = z.object({
         })
         .default("pcs"),
 
-    isFeatured: z.boolean().default(false),
-
-    isActive: z.boolean().default(true),
+    isFeatured: z
+        .enum(["true", "false"])
+        .optional()
+        .default("false")
+        .transform((val) => val === "true"),
+    isActive: z
+        .enum(["true", "false"])
+        .optional()
+        .default("true")
+        .transform((val) => val === "true"),
 });
 
 export const updateProductSchema = z
@@ -105,9 +102,17 @@ export const updateProductSchema = z
             })
             .optional(),
 
-        isFeatured: z.boolean().optional(),
+        isFeatured: z
+            .enum(["true", "false"])
+            .optional()
+            .default("false")
+            .transform((val) => val === "true"),
 
-        isActive: z.boolean().optional(),
+        isActive: z
+            .enum(["true", "false"])
+            .optional()
+            .default("true")
+            .transform((val) => val === "true"),
     })
     .refine((data) => Object.keys(data).length > 0, {
         error: "Provide at least one field to update",

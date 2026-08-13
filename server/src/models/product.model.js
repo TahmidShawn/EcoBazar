@@ -21,12 +21,22 @@ const productSchema = new mongoose.Schema(
             type: String,
             required: [true, "Please enter product description"],
         },
-        images: [
-            {
-                type: String,
-                required: true,
-            },
-        ],
+        images: {
+            type: [
+                {
+                    url: {
+                        type: String,
+                        required: true,
+                    },
+                    fileId: {
+                        type: String,
+                        required: true,
+                    },
+                    _id: false,
+                },
+            ],
+            required: [true, "Please upload at least one product image"],
+        },
         category: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Category",
@@ -104,11 +114,10 @@ productSchema.virtual("unitLabel").get(function () {
     return `${this.unitValue}${this.unitType}`;
 });
 
-productSchema.pre("validate", function (next) {
+productSchema.pre("validate", function () {
     if (this.name && !this.slug) {
         this.slug = generateSlug(this.name);
     }
-    next();
 });
 
 const Product =
