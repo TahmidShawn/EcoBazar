@@ -21,6 +21,11 @@ const categorySchema = new mongoose.Schema(
             type: String,
             required: [true, "Please provide a category image"],
         },
+        imageFileId: {
+            type: String,
+            required: true,
+            select: false,
+        },
         isActive: {
             type: Boolean,
             default: true,
@@ -29,11 +34,10 @@ const categorySchema = new mongoose.Schema(
     { timestamps: true },
 );
 
-categorySchema.pre("validate", function (next) {
+categorySchema.pre("validate", function () {
     if (this.name && !this.slug) {
         this.slug = generateSlug(this.name);
     }
-    next();
 });
 
 const Category =

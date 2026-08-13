@@ -6,8 +6,11 @@ export const createCategorySchema = z.object({
         .trim()
         .min(2, "Category name must be at least 2 characters")
         .max(50, "Category name cannot exceed 50 characters"),
-    image: z.url({ error: "Please provide a category image" }),
-    isActive: z.boolean().default(true),
+    isActive: z
+        .enum(["true", "false"])
+        .optional()
+        .default("true")
+        .transform((val) => val === "true"),
 });
 
 export const updateCategorySchema = z
@@ -18,8 +21,12 @@ export const updateCategorySchema = z
             .min(2, "Category name must be at least 2 characters")
             .max(50, "Category name cannot exceed 50 characters")
             .optional(),
-        image: z.url({ error: "Please provide a category image" }).optional(),
-        isActive: z.boolean().optional(),
+        isActive: z
+            .enum(["true", "false"])
+            .optional()
+            .transform((val) =>
+                val === undefined ? undefined : val === "true",
+            ),
     })
     .refine((data) => Object.keys(data).length > 0, {
         error: "Provide at least one field to update",
