@@ -50,14 +50,17 @@ export const createCategory = asyncHandler(async (req, res, next) => {
             data: category,
         });
     } catch (err) {
-        try {
-            await deleteFile(uploadResult.fileId);
-            console.log("image deleted", uploadResult.fileId);
-        } catch (cleanupErr) {
-            console.error("Cleanup failed:", cleanupErr.message);
-        }
+        await deleteFile(uploadResult.fileId).catch(() => {});
         throw err;
     }
 });
 
-export const getAllCategories = asyncHandler(async (req, res) => {});
+export const getAllCategories = asyncHandler(async (req, res) => {
+    const categories = await Category.find();
+
+    return res.status(200).json({
+        success: true,
+        message: "Categories fetched successfully",
+        data: categories,
+    });
+});
