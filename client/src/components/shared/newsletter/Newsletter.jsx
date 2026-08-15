@@ -9,7 +9,7 @@ const Newsletter = () => {
                         Subscribe to Our Newsletter
                     </h2>
 
-                    <p className="mt-3 text-muted text-sm">
+                    <p className="mt-3 text-sm">
                         Subscribe to get the latest updates, fresh arrivals, and
                         exclusive offers delivered straight to your inbox.
                     </p>
