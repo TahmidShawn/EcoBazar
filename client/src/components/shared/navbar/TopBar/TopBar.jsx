@@ -3,10 +3,11 @@ import NavSelect from "./NavSelect";
 import { languageOptions, currencyOptions } from "../../../../data/data";
 import { useState } from "react";
 import { Link } from "react-router";
+import { useAuth } from "../../../../hooks/useAuth";
 const TopBar = () => {
     const [language, setLanguage] = useState("en");
     const [currency, setCurrency] = useState("usd");
-    // console.log({ language, currency });
+    const { user, handleLogout } = useAuth();
 
     // to do
     // update functionality
@@ -33,13 +34,18 @@ const TopBar = () => {
                         value={currency}
                         onChange={(e) => setCurrency(e.target.value)}
                     />
-                    <div className="h-4 w-px bg-gray-300"></div>
-                    <Link to={"/register"} className="">
-                        Sign In
-                    </Link>
-                    <Link to={"/login"} className="">
-                        Login
-                    </Link>
+                    <div className="h-4 w-px bg-gray-300 mr-2"></div>
+
+                    {user ? (
+                        <button
+                            onClick={handleLogout}
+                            className="cursor-pointer"
+                        >
+                            Logout
+                        </button>
+                    ) : (
+                        <Link to={"/login"}>Login</Link>
+                    )}
                 </div>
             </div>
         </div>

@@ -1,11 +1,29 @@
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import BreadcrumbBanner from "../../components/shared/breadcrumbBanner/BreadcrumbBanner";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useAuth } from "../../hooks/useAuth";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [form, setForm] = useState({ email: "", password: "" });
 
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const { handleLogin, loading } = useAuth();
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const result = await handleLogin(form);
+
+        if (result) {
+            navigate("/");
+        }
+    }
     return (
         <div>
             <BreadcrumbBanner
@@ -22,11 +40,13 @@ const Login = () => {
                         Login
                     </h1>
 
-                    <form className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
                             <input
                                 type="email"
                                 name="email"
+                                value={form.email}
+                                onChange={handleChange}
                                 placeholder="Enter your email"
                                 required
                                 className="border-border text-text placeholder:text-muted focus:border-primary w-full rounded-md border bg-white px-3 py-3 text-sm outline-none transition"
@@ -38,6 +58,8 @@ const Login = () => {
                                 type={showPassword ? "text" : "password"}
                                 name="password"
                                 placeholder="Password"
+                                value={form.password}
+                                onChange={handleChange}
                                 required
                                 className="border-border text-text placeholder:text-muted focus:border-primary w-full rounded-md border bg-white px-3 py-3 pr-11 text-sm outline-none transition"
                             />
@@ -77,7 +99,7 @@ const Login = () => {
                             type="submit"
                             className="bg-primary hover:bg-primary/90 mt-3 w-full rounded-full px-4 py-3 text-sm font-semibold text-white transition"
                         >
-                            Login
+                            {loading ? "Logging in..." : "Login"}
                         </button>
                     </form>
 

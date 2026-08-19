@@ -9,9 +9,6 @@ import About from "../pages/about/About";
 import Contact from "../pages/contact/Contact";
 import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
-import AdminDashboardLayout from "../layout/AdminDashboardLayout";
-import AdminDashboard from "../pages/admin/minDashboard/AdminDashboard";
-import Orders from "@/pages/admin/orders/Orders";
 
 const Router = () => {
     return (
@@ -26,10 +23,6 @@ const Router = () => {
                 <Route path="contact" element={<Contact />} />
                 <Route path="register" element={<Register />} />
                 <Route path="login" element={<Login />} />
-            </Route>
-            <Route path="dashboard" element={<AdminDashboardLayout />}>
-                <Route index element={<AdminDashboard />} />
-                <Route path="orders" element={<Orders />} />
             </Route>
         </Routes>
     );
