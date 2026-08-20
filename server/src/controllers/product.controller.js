@@ -90,10 +90,14 @@ export const createProduct = asyncHandler(async (req, res, next) => {
 });
 
 export const getAllProducts = asyncHandler(async (req, res, next) => {
-    const { sort, limit } = req.query;
+    const { sort, limit, featured } = req.query;
 
     let query = Product.find();
     // console.log(query)
+
+    if (featured === "true") {
+        query = query.where("isFeatured").equals(true);
+    }
 
     if (sort === "popular") {
         query = query.sort({ salesCount: -1 });
