@@ -37,7 +37,7 @@ router
     .route("/password/reset/:token")
     .put(validateRequest(resetPasswordSchema), resetPassword);
 
-router.route("/me").get(isAuthenticatedUser, getMe);
+router.route("/auth/me").get(isAuthenticatedUser, getMe);
 
 router
     .route("/password/update")

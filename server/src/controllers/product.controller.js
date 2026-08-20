@@ -90,8 +90,19 @@ export const createProduct = asyncHandler(async (req, res, next) => {
 });
 
 export const getAllProducts = asyncHandler(async (req, res, next) => {
-    const products = await Product.find().populate("category", "name");
+    const { sort, limit } = req.query;
 
+    let query = Product.find();
+    // console.log(query)
+
+    if (sort === "popular") {
+        query = query.sort({ salesCount: -1 });
+    }
+    if (limit) {
+        query = query.limit(Number(limit));
+    }
+
+    const products = await query.populate("category", "name");
     return res.status(200).json({
         success: true,
         message: "Products fetched successfully",
