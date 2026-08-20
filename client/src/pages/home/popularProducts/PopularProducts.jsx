@@ -1,6 +1,6 @@
 import SectionTitle from "../../../components/shared/sectionTitle/SectionTitle";
 import ProductCard from "../../../components/shared/productCard/ProductCard";
-import { usePopularProducts } from "../../../hooks/useProducts";
+import { usePopularProducts } from "../../../hooks/usePopularProducts";
 
 const PopularProducts = () => {
     const POPULAR_PRODUCTS_LIMIT = 5;
