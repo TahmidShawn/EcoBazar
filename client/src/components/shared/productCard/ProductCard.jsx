@@ -4,11 +4,11 @@ import Ratings from "../../ui/Ratings";
 import PrimaryButton from "../../ui/PrimaryButton";
 
 const ProductCard = ({ product }) => {
-    const { image, name, price, rating } = product;
+    const { images, name, price, rating } = product;
 
     return (
         <div className="group relative border border-gray-200 p-2 text-center shadow transition-all hover:border-primary hover:shadow-xl">
-            <img src={image} alt={name} className="mx-auto" />
+            <img src={images?.[0]?.url} alt={name} className="mx-auto" />
 
             <div className="ml-2 text-left">
                 <p className="text-sm">{name}</p>
