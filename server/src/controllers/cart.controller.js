@@ -3,8 +3,6 @@ import asyncHandler from "../utils/asyncHandler.js";
 import Cart from "../models/cart.model.js";
 import Product from "../models/product.model.js";
 
-// Add to Cart
-
 export const addToCart = asyncHandler(async (req, res, next) => {
     const { id } = req.params;
     const { quantity = 1 } = req.body;
@@ -47,8 +45,6 @@ export const addToCart = asyncHandler(async (req, res, next) => {
     });
 });
 
-// Get Cart
-
 export const getCart = asyncHandler(async (req, res, next) => {
     const cart = await Cart.findOne({ user: req.user._id }).populate(
         "items.product",
@@ -69,8 +65,6 @@ export const getCart = asyncHandler(async (req, res, next) => {
         data: cart,
     });
 });
-
-// Update Cart Item Quantity
 
 export const updateCartItem = asyncHandler(async (req, res, next) => {
     const { id } = req.params;
@@ -105,9 +99,7 @@ export const updateCartItem = asyncHandler(async (req, res, next) => {
     });
 });
 
-// Remove Item from Cart
-
-export const removeFromCart = asyncHandler(async (req, res, next) => {
+export const removeCartItem = asyncHandler(async (req, res, next) => {
     const { id } = req.params;
 
     const cart = await Cart.findOne({ user: req.user._id });
@@ -129,8 +121,6 @@ export const removeFromCart = asyncHandler(async (req, res, next) => {
         data: populatedCart,
     });
 });
-
-// Clear Cart
 
 export const clearCart = asyncHandler(async (req, res, next) => {
     const cart = await Cart.findOne({ user: req.user._id });

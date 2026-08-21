@@ -98,7 +98,11 @@ const productSchema = new mongoose.Schema(
             ref: "User",
         },
     },
-    { timestamps: true },
+    {
+        timestamps: true,
+        toJSON: { virtuals: true },
+        toObject: { virtuals: true },
+    },
 );
 
 productSchema.virtual("discountPrice").get(function () {

@@ -1,8 +1,24 @@
 import Router from "express";
-import { addToCart } from "../controllers/cart.controller.js";
+import {
+    addToCart,
+    getCart,
+    updateCartItem,
+    removeCartItem,
+    clearCart,
+} from "../controllers/cart.controller.js";
 
+import { isAuthenticatedUser } from "../middlewares/auth.middleware.js";
 const router = Router();
 
-router.route("/cart/:id").post(addToCart);
+router
+    .route("/cart/:id")
+    .post(isAuthenticatedUser, addToCart)
+    .put(isAuthenticatedUser, updateCartItem)
+    .delete(isAuthenticatedUser, removeCartItem);
 
-export default router; 
+router
+    .route("/cart")
+    .get(isAuthenticatedUser, getCart)
+    .delete(isAuthenticatedUser, clearCart);
+
+export default router;
