@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
                 </h2>
 
                 <Ratings rating={rating} />
-                <Link to={`/products/${product.id}`}>
+                <Link to={`/products/${product._id}`}>
                     <PrimaryButton />
                 </Link>
             </div>

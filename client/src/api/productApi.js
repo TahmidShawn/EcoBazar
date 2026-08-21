@@ -5,3 +5,9 @@ export function getProducts(queryString = "") {
         method: "GET",
     });
 }
+
+export function getProductById(id) {
+    return apiRequest(`/products/${id}`, {
+        method: "GET",
+    });
+}
