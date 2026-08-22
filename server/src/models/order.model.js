@@ -2,6 +2,11 @@ import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema(
     {
+        orderNumber: {
+            type: String,
+            required: true,
+            unique: true,
+        },
         user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
@@ -75,6 +80,14 @@ const orderSchema = new mongoose.Schema(
     },
     { timestamps: true },
 );
+
+orderSchema.pre("validate", function () {
+    if (!this.orderNumber) {
+        const timestamp = Date.now().toString().slice(-8);
+        const random = Math.floor(1000 + Math.random() * 9000);
+        this.orderNumber = `ORD-${timestamp}${random}`;
+    }
+});
 
 const Order = mongoose.models.Order || mongoose.model("Order", orderSchema);
 export default Order;

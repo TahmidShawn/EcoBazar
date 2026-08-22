@@ -1,8 +1,16 @@
 import Router from "express";
-import { createOrder } from "../controllers/order.controller.js";
-
+import {
+    cancelOrder,
+    createOrder,
+    getMyOrders,
+    getOrderById,
+} from "../controllers/order.controller.js";
+import { isAuthenticatedUser } from "../middlewares/auth.middleware.js";
 const router = Router();
 
-router.route("/order/:id").post(createOrder);
+router.route("/orders").post(isAuthenticatedUser, createOrder);
+router.route("/orders/my").get(isAuthenticatedUser, getMyOrders);
+router.route("/orders/:id").get(isAuthenticatedUser, getOrderById);
+router.route("/orders/:id/cancel").put(isAuthenticatedUser, cancelOrder);
 
 export default router;
