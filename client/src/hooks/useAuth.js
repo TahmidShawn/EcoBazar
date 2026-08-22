@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { toast } from "react-toastify";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../context/AuthContextObject";
 import { registerUser, logoutUser, loginUser } from "../api/authApi";
 
 export function useAuth() {

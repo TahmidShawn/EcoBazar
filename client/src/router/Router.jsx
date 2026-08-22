@@ -9,6 +9,8 @@ import About from "../pages/about/About";
 import Contact from "../pages/contact/Contact";
 import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
+import Checkout from "../pages/checkout/Checkout";
+import OrderDetails from "../pages/OrderDetails/OrderDetails";
 
 const Router = () => {
     return (
@@ -23,6 +25,8 @@ const Router = () => {
                 <Route path="contact" element={<Contact />} />
                 <Route path="register" element={<Register />} />
                 <Route path="login" element={<Login />} />
+                <Route path="checkout" element={<Checkout />} />
+                <Route path="orders/:id" element={<OrderDetails />} />
             </Route>
         </Routes>
     );
