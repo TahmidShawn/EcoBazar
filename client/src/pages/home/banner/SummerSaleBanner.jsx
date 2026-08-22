@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import SecondaryButton from "../../../components/ui/SecondaryButton";
 
 const SummerSaleBanner = ({ bannerTopImg }) => {
@@ -18,7 +19,9 @@ const SummerSaleBanner = ({ bannerTopImg }) => {
 
                 <p className="text-xs my-3">Only Fruit & Vegetable</p>
 
-                <SecondaryButton text={"Shop Now"} />
+                <Link to={"/products"}>
+                    <SecondaryButton text={"Shop Now"} />
+                </Link>
             </div>
         </div>
     );

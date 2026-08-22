@@ -3,9 +3,17 @@ import { Handbag, Heart, Menu, Search } from "lucide-react";
 import vectorImg from "../../../../assets/Vector.png";
 import MobileSidebar from "./MobileSidebar";
 import { Link } from "react-router";
+import { useCart } from "../../../../hooks/useCart";
 
 const MainHeader = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { cart } = useCart();
+
+    const itemCount = cart.items.reduce((sum, item) => sum + item.quantity, 0);
+    const cartTotal = cart.items.reduce(
+        (sum, item) => sum + item.product.price * item.quantity,
+        0,
+    );
 
     return (
         <>
@@ -27,22 +35,26 @@ const MainHeader = () => {
                                     className="w-6 h-6"
                                 />
 
-                                <h2 className="text-2xl font-medium">
+                                <Link to={"/"} className="text-2xl font-medium">
                                     EcoBazar
-                                </h2>
+                                </Link>
                             </div>
                         </div>
 
-                        {/* Mobile Icons */}
                         <div className="flex items-center gap-4 lg:hidden">
-                            <Link to={"/wishlist"} className="cursor-pointer">
+                            <Link to={"/orders"} className="cursor-pointer">
                                 <Heart className="w-6 h-6" />
                             </Link>
                             <Link
                                 to={"/shopping-cart"}
-                                className="cursor-pointer"
+                                className="relative cursor-pointer"
                             >
                                 <Handbag className="w-6 h-6" />
+                                {itemCount > 0 && (
+                                    <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-white">
+                                        {itemCount}
+                                    </span>
+                                )}
                             </Link>
                         </div>
                     </div>
@@ -63,13 +75,20 @@ const MainHeader = () => {
                         </button>
                     </div>
 
-                    {/* Desktop Icons */}
                     <div className="hidden lg:flex items-center gap-4 text-gray-900">
-                        <Link to={"/wishlist"} className="cursor-pointer">
+                        <Link to={"/orders"} className="cursor-pointer">
                             <Heart />
                         </Link>
-                        <Link to={"/shopping-cart"} className="cursor-pointer">
+                        <Link
+                            to={"/shopping-cart"}
+                            className="relative cursor-pointer"
+                        >
                             <Handbag />
+                            {itemCount > 0 && (
+                                <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-white">
+                                    {itemCount}
+                                </span>
+                            )}
                         </Link>
 
                         <div className="h-5 w-px bg-gray-300" />
@@ -78,7 +97,9 @@ const MainHeader = () => {
                             <p className="text-xs text-gray-500">
                                 Shopping cart
                             </p>
-                            <p className="font-medium">$57.00</p>
+                            <p className="font-medium">
+                                ${cartTotal.toFixed(2)}
+                            </p>
                         </div>
                     </div>
                 </div>

@@ -1,13 +1,16 @@
 import { Eye, Heart } from "lucide-react";
 import { Link } from "react-router";
 import Ratings from "../../ui/Ratings";
-import PrimaryButton from "../../ui/PrimaryButton";
+
 
 const ProductCard = ({ product }) => {
     const { images, name, price, rating } = product;
 
     return (
-        <div className="group relative border border-gray-200 p-2 text-center shadow transition-all hover:border-primary hover:shadow-xl">
+        <Link
+            to={`/products/${product._id}`}
+            className="group relative border border-gray-200 p-5 text-center shadow transition-all hover:border-primary hover:shadow-xl"
+        >
             <img src={images?.[0]?.url} alt={name} className="mx-auto" />
 
             <div className="ml-2 text-left">
@@ -18,9 +21,7 @@ const ProductCard = ({ product }) => {
                 </h2>
 
                 <Ratings rating={rating} />
-                <Link to={`/products/${product._id}`}>
-                    <PrimaryButton />
-                </Link>
+                
             </div>
 
             <div className="absolute top-2 right-2 space-y-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -36,7 +37,7 @@ const ProductCard = ({ product }) => {
                     </div>
                 </Link>
             </div>
-        </div>
+        </Link>
     );
 };
 

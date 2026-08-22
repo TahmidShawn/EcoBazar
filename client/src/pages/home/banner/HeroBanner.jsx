@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import PrimaryButton from "../../../components/ui/PrimaryButton";
 
 const HeroBanner = ({ bannerImg }) => {
@@ -29,7 +30,9 @@ const HeroBanner = ({ bannerImg }) => {
                     </p>
                 </div>
 
-                <PrimaryButton />
+                <Link to={"/products"}>
+                    <PrimaryButton />
+                </Link>
             </div>
         </div>
     );

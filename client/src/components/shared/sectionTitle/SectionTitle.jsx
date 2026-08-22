@@ -7,7 +7,7 @@ const SectionTitle = ({ categoryName, categoryLink }) => {
             <h1 className="text-2xl font-semibold">{categoryName}</h1>
 
             <Link
-                to={categoryLink}
+                to={"/products"} // temporary
                 className="text-primary flex justify-center items-center gap-2"
             >
                 View All

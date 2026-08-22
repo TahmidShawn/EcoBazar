@@ -15,7 +15,7 @@ const Newsletter = () => {
                     </p>
                 </div>
 
-                <form className="flex w-full lg:max-w-lg">
+                <div className="flex w-full lg:max-w-lg">
                     <div className="relative flex-1">
                         <Mail
                             size={20}
@@ -29,13 +29,10 @@ const Newsletter = () => {
                         />
                     </div>
 
-                    <button
-                        type="submit"
-                        className="rounded-r-md bg-primary px-6 font-medium text-white"
-                    >
+                    <button className="rounded-r-md bg-primary px-6 font-medium text-white">
                         Subscribe
                     </button>
-                </form>
+                </div>
             </div>
         </section>
     );

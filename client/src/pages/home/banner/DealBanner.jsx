@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import SecondaryButton from "../../../components/ui/SecondaryButton";
 
 const DealBanner = ({ bannerBottomImg }) => {
@@ -18,7 +19,9 @@ const DealBanner = ({ bannerBottomImg }) => {
                 </h2>
 
                 <div className="mt-4">
-                    <SecondaryButton text={"Shop Now"} />
+                    <Link to={"/products"}>
+                        <SecondaryButton text={"Shop Now"} />
+                    </Link>
                 </div>
             </div>
         </div>

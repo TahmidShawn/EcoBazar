@@ -1,14 +1,12 @@
-import { House, Store, Newspaper, Info, Phone } from "lucide-react";
+import { House, Store, Info, Phone } from "lucide-react";
 import { Link } from "react-router";
 
 const NavLinks = () => {
     const links = [
         { label: "Home", to: "/", icon: House },
-        { label: "Shop", to: "/products", icon: Store },
-        { label: "Blog", to: "/blog", icon: Newspaper },
+        { label: "Products", to: "/products", icon: Store },
         { label: "About Us", to: "/about", icon: Info },
         { label: "Contact Us", to: "/contact", icon: Phone },
-        { label: "Register", to: "/register", icon: Phone },
     ];
 
     return (

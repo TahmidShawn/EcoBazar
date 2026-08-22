@@ -7,8 +7,8 @@ const BestDealBanner = () => {
             <Breadcrumb
                 items={[
                     {
-                        label: "Categories",
-                        href: "/categories",
+                        label: "Products",
+                        href: "/products",
                     },
                     {
                         label: "Vegetables",
